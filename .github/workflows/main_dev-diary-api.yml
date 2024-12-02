@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - DevDiary-Server
+name: Build and deploy Node.js app to Azure Web App - Dev-Diary-API
 
 on:
   push:
@@ -57,15 +57,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_77BFA031426A4E20A5121F676C5E3D9B }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_E958D6499689403D89F8F13F567BB5C6 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_E3E1BF20AD674FC1890EAE98B32529AB }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_85E3CE7300EB44A29827B4D05E6E7DE1 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_A0E59B7CC8B34B92AB511A761D138579 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_3366E2EC018946D7BFAFC72C3C8C3084 }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'DevDiary-Server'
+          app-name: 'Dev-Diary-API'
           slot-name: 'Production'
           package: .
           
