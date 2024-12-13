@@ -5,11 +5,15 @@ const blogSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    Author: {
+        type: mongoose.ObjectId,
+        ref: "User",
+    },
     BlogContent: {
         type: String,
         required: true,
     }
-});
+}, { timestamps: true });
 
 const Blog = mongoose.model("Blog", blogSchema);
 
