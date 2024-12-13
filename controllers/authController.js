@@ -60,15 +60,6 @@ async function register(req, res, next) {
             }
         );
 
-        const mailOptions = {
-            from: process.env.SENDER_EMAIL,
-            to: data.email,
-            subject: 'Welcome to DevDiary',
-            text: `<h2>Welcome to DevDiary. Your account has been created with email id: ${data.email}</h2><h2>Otp: <strong>${otp}</strong></h2>`
-        }
-
-        await transporter.sendMail(mailOptions);
-
         res.status(200).json({ success: true, msg: "registration successfull" });
     } catch (err) {
         let msg = "Error while user login!";
@@ -124,12 +115,12 @@ async function sendOtp(req, res, next) {
 
         await transporter.sendMail(mailOptions);
 
-        res.status(200).json({ success: true, msg: "registration successfull" });
+        return res.status(200).json({ success: true, msg: "registration successfull" });
     } catch (err) {
         let msg = "Error while user login!";
 
         console.log(err);
-        res.status(500).json({ success: false, msg });
+        return res.status(500).json({ success: false, msg });
     }
 }
 
